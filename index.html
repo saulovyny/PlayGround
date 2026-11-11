@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100d0b">
+  <title>Below the Emberdeep — A Dungeon Tale</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="view" aria-label="First-person dungeon game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✦</span><div><b>EMBERDEEP</b><small>THE HOLLOW BELOW</small></div></div>
+      <div class="level-label"><span class="live-dot"></span><span id="levelName">THE ASHEN GALLERY</span><i id="floorLabel">DEPTH 01</i></div>
+      <button id="soundBtn" class="icon-button" aria-label="Toggle sound">♫</button>
+    </header>
+    <section class="objective-card"><span class="eyebrow">YOUR VOW</span><strong id="objective">Find a way deeper. Bring Mara home.</strong><div class="objective-progress"><span id="progressText">THE ORC TRAIL · 0 / 3</span><span class="progress-track"><i id="progressBar"></i></span></div></section>
+    <aside class="right-rail">
+      <div class="mini-map-wrap"><span class="eyebrow">DELVER'S MAP</span><canvas id="minimap" width="132" height="132"></canvas></div>
+      <div class="journal-card"><span class="eyebrow">FIELD NOTES</span><div id="journalText">The trail runs down. Keep your blade ready.</div></div>
+      <div class="quick-hint"><kbd>E</kbd><span>Speak / use</span><kbd>SPACE</kbd><span>Strike</span></div>
+    </aside>
+    <div class="bottom-ui">
+      <div class="player-card"><div class="portrait">♙</div><div class="player-meta"><span class="eyebrow">THE DELVER</span><strong>Husband. Wanderer.</strong><div class="health-row"><span>VIT</span><div class="bar"><i id="healthBar"></i></div><b id="healthText">100</b></div><div class="xp-row"><span>EMBER</span><div class="bar xp"><i id="xpBar"></i></div><b id="goldText">12</b><small>✦</small></div></div></div>
+      <div class="weapon-card"><div class="weapon-icon">⚔</div><div><span class="eyebrow">EQUIPPED</span><strong id="weaponName">Worn iron sword</strong><small id="weaponDetail">A promise is sharper than steel.</small></div></div>
+      <div class="skill-row"><button class="skill" data-skill="1"><kbd>1</kbd><span>✦</span><small>EMBER</small></button><button class="skill" data-skill="2"><kbd>2</kbd><span>◈</span><small>GUARD</small></button><button class="skill" data-skill="3"><kbd>3</kbd><span>⌁</span><small>HEAL</small></button></div>
+    </div>
+    <div id="toast" class="toast"></div>
+    <div id="interaction" class="interaction"><span class="interaction-key">E</span><span id="interactionText">Speak</span></div>
+    <div id="hurtFlash"></div>
+    <section id="dialogue" class="dialogue hidden"><div class="dialogue-portrait" id="dialoguePortrait">?</div><div class="dialogue-copy"><span class="eyebrow" id="speakerRole">SURVIVOR</span><h2 id="speakerName">A voice in the dark</h2><p id="dialogueText"></p><div id="dialogueOptions" class="dialogue-options"></div></div><button id="closeDialogue" class="close-dialogue">×</button></section>
+    <section id="menu" class="menu-screen"><div class="menu-art"><div class="moon"></div><div class="menu-silhouette"></div><div class="menu-copy"><span class="eyebrow">A FIRST-PERSON DUNGEON TALE</span><h1>Below the<br><em>Emberdeep</em></h1><p>They took Mara into the dark.<br>You are going to bring her back.</p><button id="startBtn" class="primary-button">DESCEND INTO THE DARK <span>→</span></button><div class="controls-note">WASD MOVE <i>·</i> MOUSE LOOK <i>·</i> SPACE STRIKE <i>·</i> E INTERACT</div></div></div><div class="menu-footer"><span>✦ &nbsp; THREE DEPTHS. ONE PROMISE.</span><span>AN UNDERWORLD FOLK TALE</span></div></section>
+    <section id="ending" class="ending hidden"><span class="eyebrow">THE UNDERWORLD REMEMBERS</span><h2 id="endingTitle">Home, at last.</h2><p id="endingText"></p><button id="againBtn" class="primary-button">WALK THE DEPTHS AGAIN →</button></section>
+    <div id="touchControls" class="touch-controls"><div class="touch-pad"><button data-move="forward">▲</button><div><button data-move="left">◀</button><button data-move="back">▼</button><button data-move="right">▶</button></div></div><div class="touch-actions"><button id="touchUse">E<br><small>USE</small></button><button id="touchAttack">⚔<br><small>STRIKE</small></button></div></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
